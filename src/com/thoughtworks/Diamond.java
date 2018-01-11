@@ -64,4 +64,12 @@ public class Diamond {
         this.drawLine(maxNumSymbols, 0);
         this.bottomHalfDiamond(maxNumSymbols, height);
     }
+
+    public void diamondWithName(String name, int height) {
+        int maxNumSymbols = 2 * height - 1;
+
+        this.topHalfDiamond(maxNumSymbols, height);
+        System.out.println(name);
+        this.bottomHalfDiamond(maxNumSymbols, height);
+    }
 }
