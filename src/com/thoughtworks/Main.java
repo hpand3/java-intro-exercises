@@ -33,8 +33,10 @@ public class Main {
         System.out.println("FizzBuzz Output");
         FizzBuzz();
 
-        System.out.println("FizzBuzz Output");
-        FizzBuzz();
+        System.out.println();
+
+        System.out.println("Prime Output");
+        System.out.print(primeFactor(623));
     }
 
     public static void FizzBuzz() {
@@ -51,18 +53,28 @@ public class Main {
         }
     }
 
-    public static void primeFactor(int n) {
+    public static List<Integer> primeFactor(int n) {
         List<Integer> factors = new ArrayList();
 
+        // Even numbers
         while (n % 2 == 0) {
             factors.add(2);
             n /= 2;
         }
 
+        // Odd numbers
+        for (int oddNum = 3; oddNum <= Math.sqrt(n); oddNum += 2) {
+            while (n % oddNum == 0) {
+                factors.add(oddNum);
+                n /= oddNum;
+            }
+        }
 
+        // Prime numbers
+        if (n > 2) {
+            factors.add(n);
+        }
 
-
-
-
+        return factors;
     }
 }
