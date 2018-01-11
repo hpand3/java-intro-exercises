@@ -37,6 +37,19 @@ public class Diamond {
         }
     }
 
+    public void bottomHalfDiamond(int maxNumSymbols, int height) {
+
+        int rowSpace;
+
+        for (int numSymbols = height - 1; numSymbols >= 1; numSymbols -= 1) {
+
+            rowSpace = Math.abs(height - numSymbols);
+
+            this.drawLine(maxNumSymbols, rowSpace);
+
+        }
+    }
+
     public void isoTriangle(int height) {
         int maxNumSymbols = 2 * height - 1;
 
@@ -45,6 +58,10 @@ public class Diamond {
     }
 
     public void diamond(int height) {
+        int maxNumSymbols = 2 * height - 1;
 
+        this.topHalfDiamond(maxNumSymbols, height);
+        this.drawLine(maxNumSymbols, 0);
+        this.bottomHalfDiamond(maxNumSymbols, height);
     }
 }
